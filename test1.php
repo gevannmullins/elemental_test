@@ -15,6 +15,46 @@
 ?>
 <?php
 
+// define a few variable
+$to_sort = "";
+$to_sort_err = "";
+$sorted_string = "";
+
+// check if a post request was made
+id ($_SERVER['REQUEST_METHOD'] == "POST") {
+
+    // if textarea is empty then add error message
+    // else clean up the variable
+    if (empty($_POST['to_sort'])) {
+        $to_sort_err = "Field can not be empty";
+    } else {
+        $to_sort = clean_up_var($_POST['to_sort']);
+    }
+
+}
+
+// split text using the comma
+$to_sort_array = explode(",", $to_sort);
+
+// sort array ascending
+natcasesort($to_sort_array);
+
+// create alphabetical string
+foreach ($to_sort_array as $tsa) {
+
+    $tsa = clean_up_var($tsa);
+    $sorted_string .= $tsa . ", ";
+
+}
+
+// helper function to cleanup text and also remove numbers from text
+function clean_up_var($data) {
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
+    return $data;
+}
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -29,5 +69,15 @@
 		<textarea name="to_sort" style="width: 400px; height: 150px;"></textarea><br/>
 		<input type="submit" value="Sort" />
 	</form>
+    <!-- displaying any errors -->
+    <span style="color:red;">
+        <?php echo $to_sort_err; ?>
+    </span>
+    <!-- displaying the alphabetical result below the form -->
+    <div>
+        <?php
+            echo $sorted_string;
+        ?>
+    </div>
 </body>
 </html>
