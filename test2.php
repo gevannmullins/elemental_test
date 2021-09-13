@@ -55,6 +55,10 @@ foreach ($all_cats as $cat_key=>$cat_val) {
     $all_cat_prods = mysqli_fetch_all($prod_results, MYSQLI_ASSOC);
 ?>
 
+    <!-- display the category name -->
+    <h2><?php echo $cat_val['category']; ?></h2>
+
+
 
 <?php
 }
