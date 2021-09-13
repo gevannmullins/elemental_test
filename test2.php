@@ -26,8 +26,6 @@ require_once('db.php');
 </head>
 <body>
 
-<h1>Products</h1>
-
 <?php
 
 // get all the categories in alphabetical order
@@ -40,9 +38,26 @@ $uncat_prod_query = "SELECT * FROM products WHERE category_id IS NULL ORDER BY p
 $uncat_prod_results = mysqli_query($con,$uncat_prod_query);
 $all_uncat_prods = mysqli_fetch_all($uncat_prod_results, MYSQLI_ASSOC);
 
+?>
+
+<h1>Products</h1>
+
+<?php
+// looping through the categories
+foreach ($all_cats as $cat_key=>$cat_val) {
+
+    // saving the category id
+    $cat_id = $cat_val['id'];
+
+    // get all products for the current category
+    $prod_query = "SELECT * FROM products WHERE category_id='$cat_id' ORDER BY product ASC";
+    $prod_results = mysqli_query($con,$prod_query);
+    $all_cat_prods = mysqli_fetch_all($prod_results, MYSQLI_ASSOC);
+?>
 
 
-
+<?php
+}
 ?>
 
 </body>
