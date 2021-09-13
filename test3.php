@@ -69,6 +69,15 @@ $orders_results = mysqli_query($con, $query);
 $all_orders = mysqli_fetch_all($orders_results, MYSQLI_ASSOC);
 
 
+foreach ($all_orders as $orders) {
+
+        echo "<pre>";
+
+    echo json_encode($orders);
+
+    echo "</pre>";
+
+}
 
 ?>
 
