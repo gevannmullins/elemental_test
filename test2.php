@@ -25,10 +25,19 @@ require_once('db.php');
 	<title>Test2</title>
 </head>
 <body>
+
 <h1>Products</h1>
 
+<?php
+
+// get all the categories in alphabetical order
+$cat_query = "SELECT id, category FROM categories ORDER BY category ASC";
+$cat_results = mysqli_query($con, $cat_query);
+$all_cats = mysqli_fetch_all($cat_results, MYSQLI_ASSOC);
 
 
+
+?>
 
 </body>
 </html>
