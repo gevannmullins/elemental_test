@@ -58,6 +58,31 @@ foreach ($all_cats as $cat_key=>$cat_val) {
     <!-- display the category name -->
     <h2><?php echo $cat_val['category']; ?></h2>
 
+        <!-- table to display all the category products -->
+    <table width="400">
+        <tbody>
+        <tr>
+            <th align="left">Product</th>
+            <th align="right">Price</th>
+        </tr>
+
+        <?php
+        // loop through all the products for the current category
+        foreach ($all_cat_prods as $prod_key=>$prod_val) {
+        ?>
+
+        <tr>
+            <td><?php echo $prod_val['product']; ?></td>
+            <td align="right"><?php echo $prod_val['price']; ?></td>
+        </tr>
+
+        <?php
+        } // end of the products loop
+        ?>
+
+        </tbody>
+    </table>
+
 
 
 <?php
