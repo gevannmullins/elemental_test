@@ -83,11 +83,34 @@ foreach ($all_cats as $cat_key=>$cat_val) {
         </tbody>
     </table>
 
-
-
 <?php
-}
+} // end of categorised products
 ?>
+
+<!-- display all the uncategories products -->
+<h2>Uncategorized</h2>
+<!-- table to display all the uncategorised products -->
+<table width="400">
+    <tbody>
+    <tr>
+        <th align="left">Product</th>
+        <th align="right">Price</th>
+    </tr>
+    <?php
+    // loop through all the uncategoried products
+    foreach ($all_uncat_prods as $uncat_prod_key=>$uncat_prod_val) {
+    ?>
+
+    <tr>
+        <td><?php echo $uncat_prod_val['product']; ?></td>
+        <td align="right"><?php echo $uncat_prod_val['price']; ?></td>
+    </tr>
+
+    <?php
+    } // end of the products loop
+    ?>
+    </tbody>
+</table>
 
 </body>
 </html>
