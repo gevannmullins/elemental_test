@@ -35,6 +35,12 @@ $cat_query = "SELECT id, category FROM categories ORDER BY category ASC";
 $cat_results = mysqli_query($con, $cat_query);
 $all_cats = mysqli_fetch_all($cat_results, MYSQLI_ASSOC);
 
+// get all uncategorised products in alphabetical order
+$uncat_prod_query = "SELECT * FROM products WHERE category_id IS NULL ORDER BY product ASC";
+$uncat_prod_results = mysqli_query($con,$uncat_prod_query);
+$all_uncat_prods = mysqli_fetch_all($uncat_prod_results, MYSQLI_ASSOC);
+
+
 
 
 ?>
