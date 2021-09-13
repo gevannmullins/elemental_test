@@ -65,6 +65,10 @@ order by
     month(t1.order_date),
     sum(t4.price) DESC;
 ";
+$orders_results = mysqli_query($con, $query);
+$all_orders = mysqli_fetch_all($orders_results, MYSQLI_ASSOC);
+
+
 
 ?>
 
