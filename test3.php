@@ -25,11 +25,13 @@ require_once('db.php');
 	<title>Test3</title>
 </head>
 <body>
-    
+
+
+<h1>Top Customers per Month</h1>
+
 <?php
 
 $query = "
-
 select
     year(t1.order_date),
     month(t1.order_date),
@@ -65,9 +67,6 @@ order by
 ";
 
 ?>
-<h1>Top Customers per Month</h1>
-
-
 
 
 </body>
